@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const database = require('./db');
 
-const Cadastro = database.init('cadastrofilmes', {
+const Cadastro = database.define('cadastrofilmes', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,

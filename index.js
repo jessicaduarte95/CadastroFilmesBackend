@@ -1,22 +1,25 @@
 const express = require("express");
 const app = express();
-
-// app.get('/', (req,res) => {
-//     res.send("Teste")
-// })
+const Cadastro = require('./model');
 
 
-(async () => {
-    const database = require('./db');
-    // const Cadastro = require('./model');
- 
-    try {
-        const resultado = await database.sync();
-        console.log("Testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + resultado);
-    } catch (error) {
-        console.log("Nada de errooooooooooooo" + error);
-    }
-})();
+
+// try {
+//     const insert =  Cadastro.create({
+//         title: "Titanic",
+//         year: 1998,
+//         category: "Drama/ Romance",
+//         sinopse: "Teste Sinopse"
+//     })
+//     console.log(insert)
+// } catch (error) {
+//     console.log(error);
+// }
+
+
+app.get('/', (req,res) => {
+    res.send("Teste")
+})
 
 app.listen(5000, () => {
     console.log("Servidor Rodando!")
