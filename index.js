@@ -1,20 +1,32 @@
 const express = require("express");
 const app = express();
 const Cadastro = require('./model');
+const cors = require("cors");
 
+app.use(cors());
+app.use(express.json())
 
+app.post("/cadastrar", (req,res) => {
 
-// try {
-//     const insert =  Cadastro.create({
-//         title: "Titanic",
-//         year: 1998,
-//         category: "Drama/ Romance",
-//         sinopse: "Teste Sinopse"
-//     })
-//     console.log(insert)
-// } catch (error) {
-//     console.log(error);
-// }
+    const {name} = req.body;
+    const {year} = req.body;
+    const {category} = req.body;
+    const {sinopse} = req.body;
+
+    console.log(req.body)
+
+    try {
+        const insert =  Cadastro.create({
+            title: name,
+            year: year,
+            category: category,
+            sinopse: sinopse
+        })
+        console.log(insert)
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 
 app.get('/', (req,res) => {
