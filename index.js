@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-const Cadastro = require('./model');
 const cors = require("cors");
+const Filmes = require("./Repository");
 
 app.use(cors());
 app.use(express.json())
@@ -14,18 +14,8 @@ app.post("/cadastrar", (req,res) => {
     const {sinopse} = req.body;
 
     console.log(req.body)
+    Filmes.inserirFilmes(name, year, category, sinopse);
 
-    try {
-        const insert =  Cadastro.create({
-            title: name,
-            year: year,
-            category: category,
-            sinopse: sinopse
-        })
-        console.log(insert)
-    } catch (error) {
-        console.log(error);
-    }
 })
 
 
