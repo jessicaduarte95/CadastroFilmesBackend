@@ -1,4 +1,5 @@
 const Filmes = require("./Repository");
+const Cadastro = require('./model');
 
 const inserirFilmes =  async (req,res) => {
 
@@ -11,6 +12,13 @@ const inserirFilmes =  async (req,res) => {
     await Filmes.inserirFilmes(name, year, category, sinopse);
 }
 
+const obterFilmes = async(req, res) => {
+    const obter = await Cadastro.findAll()
+    .then((response) => res.json(response))
+    .catch((error) => console.log(error))
+}
+
 module.exports = {
-    inserirFilmes
+    inserirFilmes,
+    obterFilmes
 }

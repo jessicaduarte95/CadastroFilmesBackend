@@ -1,17 +1,19 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const Filmes = require("./Controller")
+const Filmes = require("./Controller");
 
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 
-app.post("/cadastrar", Filmes.inserirFilmes)
+app.post("/cadastrar", Filmes.inserirFilmes);
+
+app.get("/filmesCadastrados", Filmes.obterFilmes);
 
 app.get('/', (req,res) => {
-    res.send("Teste")
+    res.send("Teste");
 })
 
 app.listen(5000, () => {
-    console.log("Servidor Rodando!")
+    console.log("Servidor Rodando!");
 })

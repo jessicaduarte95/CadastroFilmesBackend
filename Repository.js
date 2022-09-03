@@ -1,3 +1,4 @@
+const res = require('express/lib/response');
 const Cadastro = require('./model');
 
 const inserirFilmes = async (name, year, category, sinopse) => {
@@ -14,6 +15,16 @@ const inserirFilmes = async (name, year, category, sinopse) => {
     }
 }
 
+const obterFilmes = async (req,res) => {
+    // try {
+    //     const obter = await Cadastro.findAll({})
+    //     .then((response) => console.log({response}), data = obter)
+    // } catch (error) {
+    //     console.log("Erro: " + error)
+    // }
+}
+
 module.exports = {
-    inserirFilmes
+    inserirFilmes,
+    obterFilmes
 }
