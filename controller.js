@@ -18,7 +18,13 @@ const obterFilmes = async(req, res) => {
     .catch((error) => console.log(error))
 }
 
+const deletarFilmes = async(req,res) => {
+    const {id} = req.params;
+    await Filmes.deletarFilmes(id)
+}
+
 module.exports = {
     inserirFilmes,
-    obterFilmes
+    obterFilmes,
+    deletarFilmes
 }

@@ -10,6 +10,8 @@ app.post("/cadastrar", Filmes.inserirFilmes);
 
 app.get("/filmesCadastrados", Filmes.obterFilmes);
 
+app.delete("/deletarFilme/:id", Filmes.deletarFilmes);
+
 app.get('/', (req,res) => {
     res.send("Teste");
 })
