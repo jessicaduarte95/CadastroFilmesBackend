@@ -33,8 +33,23 @@ const deletarFilmes = async (id) => {
     }
 }
 
+const editarFilmes = async (name, year, category, sinopse, id) => {
+    try{
+        await Cadastro.update(
+            {title: name, 
+            category: category,
+            sinopse: sinopse,
+            year: year},
+            {where: {Id: id}}
+        )
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 module.exports = {
     inserirFilmes,
     obterFilmes,
-    deletarFilmes
+    deletarFilmes,
+    editarFilmes
 }

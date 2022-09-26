@@ -23,8 +23,21 @@ const deletarFilmes = async(req,res) => {
     await Filmes.deletarFilmes(id)
 }
 
+const editarFilmes = async(req, res) => {
+    console.log(req.body)
+
+    const {name} = req.body;
+    const {year} = req.body;
+    const {category} = req.body;
+    const {sinopse} = req.body;
+    const {id} = req.params
+
+    await Filmes.editarFilmes(name, year, category, sinopse, id)
+}
+
 module.exports = {
     inserirFilmes,
     obterFilmes,
-    deletarFilmes
+    deletarFilmes,
+    editarFilmes
 }

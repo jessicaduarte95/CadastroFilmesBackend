@@ -12,6 +12,8 @@ app.get("/filmesCadastrados", Filmes.obterFilmes);
 
 app.delete("/deletarFilme/:id", Filmes.deletarFilmes);
 
+app.put("/editarfilme/:id", Filmes.editarFilmes)
+
 app.get('/', (req,res) => {
     res.send("Teste");
 })
