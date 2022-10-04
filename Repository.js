@@ -14,13 +14,13 @@ const inserirFilmes = async (name, year, category, sinopse) => {
     }
 }
 
-const obterFilmes = async (req,res) => {
-    // try {
-    //     const obter = await Cadastro.findAll({})
-    //     .then((response) => console.log({response}), data = obter)
-    // } catch (error) {
-    //     console.log("Erro: " + error)
-    // }
+const obterFilmes = async () => {
+    try {
+        const obter = await Cadastro.findAll()
+        return obter;
+    }catch (error) {
+        console.log(error)
+    }
 }
 
 const deletarFilmes = async (id) => {
