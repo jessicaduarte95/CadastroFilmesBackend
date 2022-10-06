@@ -45,16 +45,22 @@ const deletarFilmes = async (id) => {
 }
 
 const editarFilmes = async (name, year, category, sinopse, id) => {
+    const t = await sequelize.transaction()
     try{
         await Cadastro.update(
             {title: name, 
             category: category,
             sinopse: sinopse,
             year: year},
-            {where: {Id: id}}
+            {where: {Id: id}},
+            { transaction: t }
         )
+
+        await t.commit();
+
     } catch (error) {
         console.log(error)
+        await t.rollback();
     }
 }
 
