@@ -12,7 +12,7 @@ const inserirFilmes = async (name, year, category, sinopse) => {
             sinopse: sinopse
         }, { transaction: t })
 
-        await t.commit();
+        return await t.commit();
 
     } catch (error) {
         console.log(error)

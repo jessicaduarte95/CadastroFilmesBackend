@@ -8,7 +8,9 @@ const inserirFilmes =  async (req,res) => {
     const {sinopse} = req.body;
 
     console.log(req.body)
-    await Filmes.inserirFilmes(name, year, category, sinopse);
+    await Filmes.inserirFilmes(name, year, category, sinopse)
+    .then((response) => res.json(response))
+    .catch((error) => console.log(error))
 }
 
 const obterFilmes = async(req, res) => {
