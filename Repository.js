@@ -57,6 +57,7 @@ const editarFilmes = async (name, year, category, sinopse, id) => {
         )
 
         await t.commit();
+        return obterFilmes()
 
     } catch (error) {
         console.log(error)
