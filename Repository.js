@@ -37,6 +37,7 @@ const deletarFilmes = async (id) => {
         }, { transaction: t })
 
         await t.commit();
+        return obterFilmes()
 
     } catch (error) {
         console.log(error);

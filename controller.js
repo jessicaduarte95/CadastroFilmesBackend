@@ -22,6 +22,8 @@ const obterFilmes = async(req, res) => {
 const deletarFilmes = async(req,res) => {
     const {id} = req.params;
     await Filmes.deletarFilmes(id)
+    .then((response) => res.json(response))
+    .catch((error) => console.log(error))
 }
 
 const editarFilmes = async(req, res) => {
