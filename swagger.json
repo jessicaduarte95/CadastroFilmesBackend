@@ -1,0 +1,178 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de cadastro de filmes",
+        "description": "Essa api tem como objetivo realizar os cadastros dos filmes.",
+        "termsOfService": "http://localhost:5000/terms",
+        "contact": {
+            "email": "jessicaduarte.95@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:5000",
+            "description": "API de teste."
+        }
+    ],
+    "paths": {
+        "/cadastrar": {
+            "post": {
+                "summary": "Cadastro de Filmes",
+                "description": "Essa rota será responsável por cadastrar um novo filme.",
+                "tags": ["Filmes"],
+                "requestBody": {
+                    "content": {
+                        "aplication/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Filmes"
+                            },
+                            "examples": {
+                                "Filmes": {
+                                    "value" : {
+                                        "title": "Monstros S.A.",
+                                        "category": "Animação",
+                                        "sinopse": "A maior fábrica de monstros do mundo conta com James Sullivan, um dos monstros mais assustadores, que tem o pelo azul e chifres, além de seu assistente e melhor amigo Mike, um monstro verde de um olho só.",
+                                        "year": 2001
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "aplication/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Filmes"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/filmesCadastrados": {
+            "get": {
+                "description": "Lista de filmes cadastrados.",
+                "summary": "Lista de Filmes.",
+                "tags": ["Filmes"],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "aplication/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Filmes"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/deletarFilme/{id}": {
+            "delete": {
+                "description": "Excluir filme cadastrado.",
+                "summary": "Excluir Filme.",
+                "tags": ["Filmes"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Nome do filme pelo Id.",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "aplication/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Filmes"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/editarfilme/{id}": {
+            "put": {
+                "description": "Editar filme cadastrado.",
+                "summary": "Editar Filme.",
+                "tags": ["Filmes"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Nome do filme pelo Id.",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "aplication/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/cadastroFilmes"
+                            },
+                            "examples": {
+                                "Filmes": {
+                                    "value" : {
+                                        "title": "Monstros S.A.",
+                                        "category": "Animação",
+                                        "sinopse": "A maior fábrica de monstros do mundo conta com James Sullivan, um dos monstros mais assustadores, que tem o pelo azul e chifres, além de seu assistente e melhor amigo Mike, um monstro verde de um olho só.",
+                                        "year": 2001
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "aplication/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Filmes"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "cadastroFilmes": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "category": {
+                        "type": "string"
+                    },
+                    "sinopse": {
+                        "type": "string"
+                    },
+                    "year": {
+                        "type": "number"
+                    },
+                    "Id": {
+                        "type": "number"
+                    }
+                }
+            }
+        }
+    }
+}
