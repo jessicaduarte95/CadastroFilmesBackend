@@ -153,7 +153,7 @@
     },
     "components": {
         "schemas": {
-            "cadastroFilmes": {
+            "Filmes": {
                 "type": "object",
                 "properties": {
                     "title": {
